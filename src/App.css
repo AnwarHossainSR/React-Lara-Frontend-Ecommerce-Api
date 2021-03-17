@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
+.nav_bar_wraper a{
+  padding-left: 30px;
+  text-decoration: none;
+  color: cyan;
+}
+.nav_bar_wraper a:hover{
+  text-decoration: none;
+}
 
 .App-logo {
   height: 40vmin;
