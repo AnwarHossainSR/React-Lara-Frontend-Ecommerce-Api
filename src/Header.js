@@ -2,10 +2,11 @@ import { Navbar,Nav,NavDropdown } from 'react-bootstrap';
 import { Link,useHistory } from 'react-router-dom'
 
 function Header() {
-    const user = JSON.parse(localStorage.getItem('user-info'))
-    const histry = useHistory();
     
+    const histry = useHistory();
+    const user = JSON.parse(localStorage.getItem('user-info'))
     function logout() { 
+        
         localStorage.clear()
         histry.push('/login')
      }
