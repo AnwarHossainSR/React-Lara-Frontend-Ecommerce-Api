@@ -1,8 +1,15 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { useHistory } from 'react-router-dom'
+import Header from './Header';
 
 
 function Register() {
+
+    useEffect(()=>{
+        if (localStorage.getItem('user-info')) {
+            histry.push('/add')
+        }
+    },[]);
 
     const [name,setName]=useState('');
     const [email,setEmail]=useState('');
@@ -24,22 +31,25 @@ function Register() {
         histry.push('/add')
      }
     return (
-        <div className="col-md-4 offset-md-4">
-            <h1>User Signup</h1><br/>
-            <label className="float-left">Full Name</label>
-            <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" />
-           
-            <br/>
-            <label className="float-left">Password</label>
-            <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" />
+        <>
+            <Header />,
+            <div className="col-md-4 offset-md-4">
+                <h1>User Signup</h1><br/>
+                <label className="float-left">Full Name</label>
+                <input type="text" value={name} onChange={(e)=>setName(e.target.value)} className="form-control" />
+            
+                <br/>
+                <label className="float-left">Password</label>
+                <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} className="form-control" />
 
-            <br/>
-            <label className="float-left">Email</label>
-            <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" />
+                <br/>
+                <label className="float-left">Email</label>
+                <input type="email" value={email} onChange={(e)=>setEmail(e.target.value)} className="form-control" />
 
-            <br/>
-            <button type="submit" onClick={signUp} className="btn btn-info btn-block">Sign Up</button>
-        </div>
+                <br/>
+                <button type="submit" onClick={signUp} className="btn btn-info btn-block">Sign Up</button>
+            </div>
+        </>
     )
 }
 
