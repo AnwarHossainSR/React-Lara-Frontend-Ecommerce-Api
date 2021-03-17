@@ -5,7 +5,7 @@ function Header() {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
-                <Navbar.Brand href="#home">Home</Navbar.Brand>
+                <Navbar.Brand href="">Home</Navbar.Brand>
                 <Nav className="mr-auto nav_bar_wraper">
                     <Link to="/add">Add Product</Link>
                     <Link to="/update">Update Product</Link>

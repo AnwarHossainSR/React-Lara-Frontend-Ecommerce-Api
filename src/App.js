@@ -14,18 +14,10 @@ function App() {
     <div className="App">
     <BrowserRouter>
       <Header />
-      <Route path="/login">
-        <Login/>
-      </Route>
-      <Route path="/register">
-        <Register/>
-      </Route>
-      <Route path="/add">
-        <AddProduct/>
-      </Route>
-      <Route path="/update">
-        <UpdateProduct/>
-      </Route>
+      <Route path="/login"><Login/></Route>
+      <Route path="/register"><Register/></Route>
+      <Route path="/add"><AddProduct/></Route>
+      <Route path="/update"><UpdateProduct/></Route>
     </BrowserRouter>
     </div>
   );
