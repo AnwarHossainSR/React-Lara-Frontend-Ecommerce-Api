@@ -9,6 +9,10 @@
 .nav_bar_wraper a:hover{
   text-decoration: none;
 }
+.nav_bar_brand a{
+  text-decoration: none;
+  color: rgb(53, 216, 216);
+}
 
 .App-logo {
   height: 40vmin;

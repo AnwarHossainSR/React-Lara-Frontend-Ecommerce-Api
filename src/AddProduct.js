@@ -1,8 +1,10 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState} from 'react';
 import Header from './Header';
+import { useHistory } from 'react-router-dom'
 
 
 function AddProduct() {
+    const histry = useHistory();
     const [name,setName]=useState('');
     const [file_path,setImage]=useState('');
     const [price,setPrice]=useState('');
@@ -13,16 +15,21 @@ function AddProduct() {
         formData.append('name',name)
         formData.append('file_path',file_path)
         formData.append('price',price)
-        formData.append('description',description)
-        let result = await fetch('http://127.0.0.1:8000/api/add-product',{
-            method:'POST',
-            body:formData
-        });
-        alert('Data has been Saved')
+        if (formData.name === '') {
+            alert('name must required')
+        }else{
+            formData.append('description',description)
+            let result = await fetch('http://127.0.0.1:8000/api/add-product',{
+                method:'POST',
+                body:formData
+            });
+            histry.push('/add')
+        }
+        
      }
     return (
         <>
-            <Header />,
+            <Header />
             <div className="col-md-4 offset-md-4">
                 <h1>Add Product</h1><br/>
                 <label className="float-left">Product Name</label>
@@ -46,5 +53,4 @@ function AddProduct() {
         </>
     )
 }
-
 export default AddProduct;

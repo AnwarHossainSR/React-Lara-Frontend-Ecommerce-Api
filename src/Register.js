@@ -5,6 +5,7 @@ import Header from './Header';
 
 function Register() {
 
+    const histry = useHistory();
     useEffect(()=>{
         if (localStorage.getItem('user-info')) {
             histry.push('/add')
@@ -14,7 +15,7 @@ function Register() {
     const [name,setName]=useState('');
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-    const histry = useHistory();
+    
 
     async function signUp () { 
         let item = {name,email,password}
@@ -32,7 +33,7 @@ function Register() {
      }
     return (
         <>
-            <Header />,
+            <Header />
             <div className="col-md-4 offset-md-4">
                 <h1>User Signup</h1><br/>
                 <label className="float-left">Full Name</label>

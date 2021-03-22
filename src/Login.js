@@ -30,7 +30,7 @@ function Login() {
     
     return (
         <>
-            <Header />,
+            <Header />
             <div className="col-md-4 offset-md-4">
                 <h1>Sign In</h1><br/>
                 <br/>
