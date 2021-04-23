@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import { Table } from "react-bootstrap";
 import "../node_modules/font-awesome/css/font-awesome.min.css";
 import Header from "./Header";
@@ -16,6 +17,15 @@ const Home = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  async function editProduct(id){
+    let result = await fetch("http://localhost:8000/api/productget/"+id);
+    result = await result.json();
+    setData(result);
+    $(document).ready(function () {
+      $("#example").DataTable();
+    });
+  }
 
   async function deleteProduct(id) {
     Swal.fire({
@@ -84,8 +94,11 @@ const Home = () => {
                         />
                       </td>
                       <td>
+                        <Link to={"update/"+item.id} key={item.id}>
+                          <i className="fa fa-2x fa-edit text-primary"/>
+                        </Link>
                         <i
-                          className="fa fa-2x fa-trash text-danger"
+                          className="ml-2 fa fa-2x fa-trash text-danger mr-2"
                           onClick={() => deleteProduct(item.id)}
                         />
                       </td>

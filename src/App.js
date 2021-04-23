@@ -8,15 +8,16 @@ import Home from './Home';
 import UpdateProduct from './UpdateProduct';
 import Protected from './Protected';
 
-function App() {
+function App(props) {
+  console.log(props)
   return (
     <div className="App">
     <BrowserRouter>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" key={props.id} component={Home} />
       <Route path="/login"><Login/></Route>
       <Route path="/register"><Register/></Route>
       <Route path="/add"> <Protected Cmp={AddProduct} /></Route>
-      <Route path="/update"><Protected Cmp={UpdateProduct} /></Route>
+      <Route path="/update/:id" key={props.id}><Protected Cmp={UpdateProduct} /></Route>
     </BrowserRouter>
     </div>
   );
